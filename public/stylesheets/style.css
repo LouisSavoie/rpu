@@ -1,0 +1,373 @@
+/* Color Palette
+https://colorhunt.co/palette/208131
+#ffffff
+#00ec1b
+#00bd16
+#00a413
+*/
+
+body {
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    margin: auto;
+    max-width: 720px;
+}
+
+/* NAVBAR */
+
+header {
+    height: 70px;
+    width: 100%;
+    border-radius: 0 0 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #00a413;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+}
+
+.logo {
+    margin: 0px 0px 15px 20px;
+    letter-spacing: 3px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    color: white;
+}
+
+nav {
+    margin: 0 2rem 0 0;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.navlink {
+    float: left;
+}
+
+.navlink.active {
+    background-color: #00bd16;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+}
+
+.navlink a:hover {
+    background-color: #00bd16;
+}
+
+.navlink a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 25px 16px;
+    text-decoration: none;
+}
+
+.burger {
+    margin-right: 35px;
+    display: none;
+    font-size: 1.2em;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    color: white;
+}
+
+@media screen and (max-width: 678px) {
+    .header-active {
+        border-radius: 0 0 0 2rem;
+    }
+    
+    nav {
+        margin: 0;
+        border-radius: 0 0 2rem 2rem;
+        padding: 0;
+        position: absolute;
+        top: 70px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        background: #00a413;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, .5);
+        transition: all 400ms;
+    }
+
+    .nav-active {
+        right: 0;
+        display: inherit;
+    }
+
+    .navlink {
+        text-align: center;
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+/* TEXT */
+
+.text-center {
+    text-align: center;
+}
+
+.margin-top {
+    margin: 1rem 0 0 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    margin: 1rem 0 0 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    margin: 0 8px 4px 0;
+    display: inline;
+    font-size: 20px;
+    color: #00a413;
+}
+
+.text-size-20 {
+    font-size: 20px;
+}
+
+.green {
+    color: #00a413;
+}
+
+.blue {
+    color: rgb(100, 100, 255);
+}
+
+/* FRAMES */
+
+.frame-outer {
+    margin: 16px 8px;
+    border: 32px solid #00bd16;
+    border-top: 8px;
+    border-radius: 40px;
+    background: #00bd16;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+    color: white;
+}
+
+.frame-outer h1 {
+    margin: 0 0 1.5rem 1rem;
+}
+
+.frame-outer h3 {
+    margin: .25rem 0 1.5rem 1rem;
+    padding-top: .5rem;
+}
+
+.frame-inner {
+    padding: .5rem;
+    box-shadow: 0px 0px 0px 1rem #00ec1b;
+    border-radius: 1rem;
+    background: white;
+    color: black;
+    text-shadow: none;
+}
+
+/* FLEX CONTAINERS */
+
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.h-center {
+    justify-content: center;
+}
+
+.v-center {
+    align-items: center;
+}
+
+.h-around {
+    justify-content: space-around;
+}
+
+.h-even {
+    justify-content: space-evenly;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+/* BUTTONS */
+
+.button {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+}
+
+.btn-green {
+    background: #00bd16;
+}
+
+.btn-blue {
+    background: rgb(100, 100, 255);
+}
+
+/* FORMS */
+
+label {
+    margin: 8px;
+}
+
+input {
+    margin: 8px;
+    padding: .25rem;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+select {
+    margin: 8px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.post input, .post select {
+    width: 100%;
+}
+
+/* MODULES */
+
+.module {
+    border: 2px solid black;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.module p {
+    margin: 0;
+    display: inline;
+}
+
+.half {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.cell {
+    display: flex;
+    justify-content: space-between;
+}
+
+.number {
+    margin: 0 0 2px 8px;
+    border-radius: 16px;
+    padding: 0 8px;
+    background: #00bd16;
+    color: white;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, .5);
+}
+
+.progress-bar {
+    height: 16px;
+    width: 200px;
+    margin: 1px 4px 0 0;
+    border-radius: 16px;
+    background: lightgrey;
+    align-self: center;
+}
+
+.progress {
+    height: 16px;
+    width: 30%;
+    border-radius: 16px;
+    background: rgb(100, 100, 255);
+}
+
+#level {
+    font-size: 64px;
+    line-height: 1;
+    text-align: center;
+}
+
+@media screen and (min-width: 678px) {
+    #stats {
+        flex-basis: 33%;
+        order: 0;
+    }
+
+    #hp-lvl {
+        flex-direction: row;
+    }
+
+    #health {
+        flex-basis: 33%;
+        order: 1;
+    }
+
+    #lvl {
+        flex-basis: 33%;
+        order: 1;
+    }
+}
+
+@media screen and (max-width: 620px) {
+
+    .progress-bar {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    .progress-bar {
+        display: none;
+    }
+}
+
+/* SPACING UTILITIES */
+
+.mt {
+    margin-top: 8px;
+}
+
+.mt2 {
+    margin-top: 12px;
+}
+
+.mr {
+    margin-right: 8px;
+}
+
+.mr2 {
+    margin-right: 12px;
+}
+
+.mb {
+    margin-bottom: 8px;
+}
+
+.ml {
+    margin-left: 8px;
+}
+
+.ml2 {
+    margin-left: 12px;
+}
