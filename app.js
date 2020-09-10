@@ -12,6 +12,9 @@ mongoose.connect(process.env.DATABASEURL, {
 .catch(error => console.log(error.message));
 mongoose.set('useFindAndModify', false);
 
+// APP SETUP
+app.use('view engine', 'ejs');
+
 // REQUIRE ROUTES
 const indexRoutes = require('./routes/index');
 
