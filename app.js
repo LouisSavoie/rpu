@@ -1,5 +1,15 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+
+// CONNECT MONGOOSE TO MONGODB
+mongoose.connect(process.env.DATABASEURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(console.log('Mongoose connected to MongoDB'))
+.catch(error => console.log(error.message));
+mongoose.set('useFindAndModify', false);
 
 // REQUIRE ROUTES
 const indexRoutes = require('./routes/index');
