@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-// ROOT
+// ROOT (FEED)
 router.get("/", (req, res) => {
-    res.send("Hello rp-u");
+    res.render("feed");
 });
 
 module.exports = router;

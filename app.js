@@ -13,7 +13,8 @@ mongoose.connect(process.env.DATABASEURL, {
 mongoose.set('useFindAndModify', false);
 
 // APP SETUP
-app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 // REQUIRE ROUTES
 const indexRoutes = require('./routes/index');
