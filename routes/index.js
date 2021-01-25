@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-// ROOT (FEED)
+// GET Landing Page (ROOT)
 router.get("/", (req, res) => {
-    res.render("feed");
+    res.render("landing");
 });
 
 module.exports = router;
