@@ -1,13 +1,50 @@
 /* Color Palette
 https://colorhunt.co/palette/208131
-white #ffffff
-black #000000
-primary green #
+white #ffffff, rgb(255, 255, 255)
+black #000000, rgb(0, 0, 0)
+primary green #, rgb(50, 200, 50)
 secondary green #
 link blue #
 */
 
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* CUSTOM UTILITIES */
+
+/* Backgrounds */
+.bg-green {
+    background: rgb(50, 200, 50);
+}
+
+/* Text Color */
+.tc-white {
+    color: rgb(255, 255, 255);
+}
+
+/* Text Size */
+.ts-2 {
+    font-size: calc(1rem + .5vw);
+}
+
+.ts-10 {
+    font-size: calc(10rem + 5vw);
+}
+
 /* CUSTOM COMPONENTS */
+
+/* Buttons */
+.btn-white {
+    border: 3px solid white;
+    background: white;
+    color: rgb(50, 200, 50);
+}
+
+.btn-white:hover {
+    background: rgb(50, 200, 50);
+    color: white;
+}
 
 /* Frames */
 .frame-outer {
