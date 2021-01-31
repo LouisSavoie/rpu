@@ -17,6 +17,8 @@ $font-quicksand: 'Quicksand', sans-serif;
 
 // Font Sizes
 $fontsize-calc1: calc(1rem + .5vw);
+$fontsize-calc2: calc(2rem + 1vw);
+$fontsize-calc5: calc(5rem + 2.5vw);
 $fontsize-calc10: calc(10rem + 5vw);
 
 // ---
@@ -44,6 +46,14 @@ $fontsize-calc10: calc(10rem + 5vw);
 /* Text Size */
 .textsize-1 {
     font-size: $fontsize-calc1;
+}
+
+.textsize-2 {
+    font-size: $fontsize-calc2;
+}
+
+.textsize-5 {
+    font-size: $fontsize-calc5;
 }
 
 .textsize-10 {

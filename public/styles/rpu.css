@@ -19,6 +19,14 @@
   font-size: calc(1rem + .5vw);
 }
 
+.textsize-2 {
+  font-size: calc(2rem + 1vw);
+}
+
+.textsize-5 {
+  font-size: calc(5rem + 2.5vw);
+}
+
 .textsize-10 {
   font-size: calc(10rem + 5vw);
 }
