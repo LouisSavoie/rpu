@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+User = require("./models/user");
 require('dotenv').config();
 
 // CONNECT MONGOOSE TO MONGODB
