@@ -1,0 +1,68 @@
+/* Color Palette
+https://colorhunt.co/palette/208131
+white #ffffff, rgb(255, 255, 255)
+black #000000, rgb(0, 0, 0)
+primary green #, rgb(50, 200, 50)
+secondary green #
+link blue #
+*/
+
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* CUSTOM UTILITIES */
+
+/* Backgrounds */
+.bg-green {
+    background: rgb(50, 200, 50);
+}
+
+/* Text Color */
+.tc-white {
+    color: rgb(255, 255, 255);
+}
+
+/* Text Size */
+.ts-2 {
+    font-size: calc(1rem + .5vw);
+}
+
+.ts-10 {
+    font-size: calc(10rem + 5vw);
+}
+
+/* CUSTOM COMPONENTS */
+
+/* Buttons */
+.btn-white {
+    border: 3px solid white;
+    background: white;
+    color: rgb(50, 200, 50);
+}
+
+.btn-white:hover {
+    background: rgb(50, 200, 50);
+    color: white;
+}
+
+/* Frames */
+.frame-outer {
+    margin: 1rem .5rem;
+    border: 1rem solid #00bd16;
+    border-top: .5rem;
+    border-radius: 40px;
+    background: #00bd16;
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+    text-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+    color: white;
+}
+
+.frame-inner {
+    padding: .5rem;
+    box-shadow: 0 0 0 1rem #00ec1b;
+    border-radius: 1rem;
+    background: white;
+    color: black;
+    text-shadow: none;
+}

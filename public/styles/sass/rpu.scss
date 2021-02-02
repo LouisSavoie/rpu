@@ -1,0 +1,76 @@
+// The rpu sass is built to extend Bootstrap v5.0.0-beta1.
+// Some styles my be incomplete without it.
+// Many such styles are commented on in Sass comments.
+
+// ---------
+// VARIABLES
+// ---------
+
+// Colors
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+$color-green-primary: rgb(50, 200, 50);
+
+
+// Fonts
+$font-quicksand: 'Quicksand', sans-serif;
+
+// Font Sizes
+$fontsize-calc1: calc(1rem + .5vw);
+$fontsize-calc2: calc(2rem + 1vw);
+$fontsize-calc5: calc(5rem + 2.5vw);
+$fontsize-calc10: calc(10rem + 5vw);
+
+// ---
+// CSS
+// ---
+
+/* GENERAL */
+
+* {
+    font-family: $font-quicksand;
+}
+
+/* CUSTOM UTILITIES */
+
+/* Backgrounds */
+.background-green {
+    background: $color-green-primary;
+}
+
+/* Text Color */
+.textcolor-white {
+    color: $color-white;
+}
+
+/* Text Size */
+.textsize-1 {
+    font-size: $fontsize-calc1;
+}
+
+.textsize-2 {
+    font-size: $fontsize-calc2;
+}
+
+.textsize-5 {
+    font-size: $fontsize-calc5;
+}
+
+.textsize-10 {
+    font-size: $fontsize-calc10;
+}
+
+/* CUSTOM COMPONENTS */
+
+/* Buttons */
+// Builds on BS's .btn class
+.button-white {
+    border: 3px solid $color-white;
+    background: $color-white;
+    color: $color-green-primary;
+}
+
+.button-white:hover {
+    background: $color-green-primary;
+    color: $color-white;
+}
