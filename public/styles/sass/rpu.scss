@@ -43,6 +43,11 @@ $fontsize-calc10: calc(10rem + 5vw);
     color: $color-white;
 }
 
+/* Text Hover Color */
+.texthover-black:hover {
+    color: $color-black;
+}
+
 /* Text Size */
 .textsize-1 {
     font-size: $fontsize-calc1;

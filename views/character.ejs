@@ -1,0 +1,14 @@
+<%- include("./partials/head") %>
+<%- include("./partials/header") %>
+
+<h2 class="text-center mb-5">character</h2>
+
+<!-- temporary enable tooltips script -->
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+<%- include("./partials/copyright") %>

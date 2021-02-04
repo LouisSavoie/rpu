@@ -40,4 +40,9 @@ router.post("/login", passport.authenticate("local",
 
 });
 
+// Temporary GET Character
+router.get("/character", (req, res) => {
+    res.render("character");
+});
+
 module.exports = router;
