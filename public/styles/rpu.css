@@ -28,12 +28,21 @@
   font-size: calc(2rem + 1vw);
 }
 
+.textsize-3 {
+  font-size: calc(3rem + 1.5vw);
+}
+
 .textsize-5 {
   font-size: calc(5rem + 2.5vw);
 }
 
 .textsize-10 {
   font-size: calc(10rem + 5vw);
+}
+
+/* Borders */
+.border-circle {
+  border-radius: 50%;
 }
 
 /* CUSTOM COMPONENTS */
@@ -47,6 +56,12 @@
 .button-white:hover {
   background: #32c832;
   color: white;
+}
+
+/* Info Panel */
+.info-panel {
+  border: 3px solid black;
+  border-radius: 1rem;
 }
 
 /*# sourceMappingURL=rpu.css.map */
