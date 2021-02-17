@@ -1,12 +1,19 @@
 const express = require("express");
-const { deserializeUser } = require("passport");
 const router = express.Router();
 const passport = require("passport");
+const { deserializeUser } = require("passport");
+const User = require("../models/user");
+
+// ====================
+//     Index Routes
+// ====================
 
 // GET Landing Page (ROOT)
 router.get("/", (req, res) => {
     res.render("landing");
 });
+
+
 
 // GET Sign Up Form
 router.get("/signup", (req, res) => {
@@ -21,10 +28,12 @@ router.post("/signup", (req, res) => {
             return res.render("/signup")
         }
         passport.authenticate("local")(req, res, function() {
-            res.redirect("/character");
+            res.redirect("/character/new");
         });
     });
 });
+
+
 
 // GET Log In Form
 router.get("/login", (req, res) => {
@@ -38,11 +47,6 @@ router.post("/login", passport.authenticate("local",
       failureRedirect: "/login"
   }), (req, res) => {
 
-});
-
-// Temporary GET Character
-router.get("/character", (req, res) => {
-    res.render("character");
 });
 
 module.exports = router;

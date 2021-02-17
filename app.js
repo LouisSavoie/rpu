@@ -1,3 +1,4 @@
+// REQUIRES
 const express = require('express');
 const app = express();
 // For database models
@@ -8,9 +9,14 @@ const LocalStrategy = require("passport-local");
 // For PUT and DELELTE requests in HTML forms
 const methodOverride = require("method-override");
 // Mongoose Models
-User = require("./models/user");
+const Character = require("./models/character");
+const User = require("./models/user");
 // For enviromental variables
 require('dotenv').config();
+
+// REQUIRE ROUTES
+const characterRoutes = require('./routes/character');
+const indexRoutes = require('./routes/index');
 
 // CONNECT MONGOOSE TO MONGODB
 mongoose.connect(process.env.DATABASEURL, {
@@ -46,10 +52,8 @@ app.use(function(req, res, next){
     next();
 });
 
-// REQUIRE ROUTES
-const indexRoutes = require('./routes/index');
-
 // USE ROUTES
+app.use(characterRoutes);
 app.use(indexRoutes);
 
 // PORT LISTENING
