@@ -18,16 +18,13 @@ router.post("/character", middleware.isLoggedIn, function(req, res){
     // get data from form
     let name = req.body.name;
     let image = req.body.image;
-    let author = {
-        id: req.user._id,
-        username: req.user.username
-    }
+    let user = req.user._id
     // add data to Character modle and add to DB (rpu.characters)
     Character.create({
         name: name,
         image: image,
         level: 0,
-        author: author
+        user: user
     }, function(err, character) {
         if (err) {
             res.redirect("back");
@@ -36,15 +33,17 @@ router.post("/character", middleware.isLoggedIn, function(req, res){
         }
     });
     // redirect back to character page
-    res.redirect("/character");
+    res.redirect("/character/:id");
 });
 
 // GET Character
 router.get("/character/:id", (req, res) => {
-    Character.findById(req.user.id).exec(function(err, foundCharacter) {
+    Character.findOne({user: req.user.id}).exec(function(err, foundCharacter) {
         if (err) {
             console.log(err);
         } else {
+            console.log(req.user.id)
+            console.log(foundCharacter);
             res.render("character/show", {character: foundCharacter});
         }
     });

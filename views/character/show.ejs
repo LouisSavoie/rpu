@@ -8,17 +8,17 @@
 
     <div class="col-12 col-sm-4 d-flex justify-content-center mb-4 mb-sm-0 p-0">
       <!-- Avatar -->
-      <img class="img-fluid border-circle" src="/img/youlooklikethisguy.jpg" alt="Avatar">
+      <img class="img-fluid border-circle" src="<%= character.image %>" alt="Avatar">
     </div>
 
     <div class="col-12 col-sm-8 d-flex flex-column justify-content-evenly align-items-center align-items-sm-start ps-sm-4 p-0">
       <div class="row">
         <!-- Character Name -->
-        <h2 class="textsize-2 mb-0">This Guy</h2>
+        <h2 class="textsize-2 mb-0"><%= character.name %></h2>
       </div>
       <div class="row">
         <!-- Character Level -->
-        <p class="textsize-2 mb-0">level 50</p>
+        <p class="textsize-2 mb-0">level <%= character.level %></p>
       </div>
     </div>
 
