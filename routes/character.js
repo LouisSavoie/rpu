@@ -41,7 +41,13 @@ router.post("/character", middleware.isLoggedIn, function(req, res){
 
 // GET Character
 router.get("/character/:id", (req, res) => {
-    res.render("character/show");
+    Character.findById(req.user.id).exec(function(err, foundCharacter) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("character/show", {character: foundCharacter});
+        }
+    });
 });
 
 module.exports = router;
