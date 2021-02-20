@@ -29,21 +29,19 @@ router.post("/character", middleware.isLoggedIn, function(req, res){
         if (err) {
             res.redirect("back");
         } else {
-            console.log("User added, " + character.name + " to rpu.characterss.");
+            console.log("User added, " + character.name + " to rpu.characters.");
         }
     });
     // redirect back to character page
-    res.redirect("/character/:id");
+    res.redirect("/character");
 });
 
 // GET Character
-router.get("/character/:id", (req, res) => {
+router.get("/character", (req, res) => {
     Character.findOne({user: req.user.id}).exec(function(err, foundCharacter) {
         if (err) {
             console.log(err);
         } else {
-            console.log(req.user.id)
-            console.log(foundCharacter);
             res.render("character/show", {character: foundCharacter});
         }
     });
