@@ -16,15 +16,16 @@ router.get("/character/new", middleware.isLoggedIn, function(req, res){
 // POST New Character Form
 router.post("/character", middleware.isLoggedIn, function(req, res){
     // get data from form
+    let user = req.user._id;
     let name = req.body.name;
     let image = req.body.image;
-    let user = req.user._id
     // add data to Character modle and add to DB (rpu.characters)
     Character.create({
+        user: user,
         name: name,
         image: image,
         level: 0,
-        user: user
+        levelProgress: 0,
     }, function(err, character) {
         if (err) {
             res.redirect("back");
