@@ -3,15 +3,15 @@
 
 <div class="container">
 
-  <!-- Avatar, Name and Level -->
+  <!-- Character Info -->
   <div class="row info-panel p-4 mb-5">
 
-    <div class="col-12 col-sm-4 d-flex justify-content-center mb-4 mb-sm-0 p-0">
-      <!-- Avatar -->
-      <img class="img-fluid border-circle" src="<%= character.image %>" style="width:200px;height:200px;" alt="Avatar">
+    <div class="col-12 col-sm-5 col-md-4 d-flex justify-content-center mb-4 mb-sm-0 p-0">
+      <!-- Character Image -->
+      <img class="border-circle" src="<%= character.image %>" style="width:200px;height:200px;" alt="Avatar">
     </div>
 
-    <div class="col-12 col-sm-8 d-flex flex-column justify-content-evenly align-items-center align-items-sm-start ps-sm-4 p-0">
+    <div class="col-12 col-sm-7 col-md-8 d-flex flex-column justify-content-evenly align-items-center align-items-sm-start ps-sm-4 p-0">
       <div class="row">
         <!-- Character Name -->
         <h2 class="textsize-2 mb-0"><%= character.name %></h2>
@@ -24,8 +24,30 @@
 
   </div>
 
-  <!-- Skills -->
-  <div class="row">
+  <!-- Progress -->
+  <div class="row info-panel p-4 mb-5">
+
+    <div class="col-12">
+
+      <div class="row">
+
+        <div class="col-auto d-flex flex-column justify-content-center">
+          <span class="textsize-1">level <%= character.level %></span>
+        </div>
+
+        <div class="col d-flex flex-column justify-content-center">
+          <div class="progress" style="height: 100%;">
+            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="8" aria-valuemin="0" aria-valuemax="10">
+              <span class="textsize-1"><span>8</span>/10</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      
+
+    </div>
 
   </div>
 </div>
