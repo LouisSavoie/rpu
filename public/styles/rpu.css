@@ -14,21 +14,55 @@
   color: white;
 }
 
+/* Text Hover Color */
+.texthover-black:hover {
+  color: black;
+}
+
 /* Text Size */
 .textsize-1 {
-  font-size: calc(1rem + .5vw);
+  font-size: calc(1rem + 1vw);
 }
 
 .textsize-2 {
-  font-size: calc(2rem + 1vw);
+  font-size: calc(2rem + 2vw);
+}
+
+.textsize-3 {
+  font-size: calc(3rem + 3vw);
+}
+
+.textsize-4 {
+  font-size: calc(4rem + 4vw);
 }
 
 .textsize-5 {
-  font-size: calc(5rem + 2.5vw);
+  font-size: calc(5rem + 5vw);
+}
+
+.textsize-6 {
+  font-size: calc(6rem + 6vw);
+}
+
+.textsize-7 {
+  font-size: calc(7rem + 7vw);
+}
+
+.textsize-8 {
+  font-size: calc(8rem + 8vw);
+}
+
+.textsize-9 {
+  font-size: calc(9rem + 9vw);
 }
 
 .textsize-10 {
-  font-size: calc(10rem + 5vw);
+  font-size: calc(10rem + 10vw);
+}
+
+/* Borders */
+.border-circle {
+  border-radius: 50%;
 }
 
 /* CUSTOM COMPONENTS */
@@ -42,6 +76,23 @@
 .button-white:hover {
   background: #32c832;
   color: white;
+}
+
+.button-green {
+  border: 3px solid #32c832;
+  background: #32c832;
+  color: white;
+}
+
+.button-green:hover {
+  background: white;
+  color: #32c832;
+}
+
+/* Info Panel */
+.info-panel {
+  border: 5px solid black;
+  border-radius: 1rem;
 }
 
 /*# sourceMappingURL=rpu.css.map */

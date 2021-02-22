@@ -15,11 +15,14 @@ $color-green-primary: rgb(50, 200, 50);
 // Fonts
 $font-quicksand: 'Quicksand', sans-serif;
 
+// ------
+// MIXINS
+// ------
+
 // Font Sizes
-$fontsize-calc1: calc(1rem + .5vw);
-$fontsize-calc2: calc(2rem + 1vw);
-$fontsize-calc5: calc(5rem + 2.5vw);
-$fontsize-calc10: calc(10rem + 5vw);
+@mixin fontsize($n) {
+    font-size: calc(#{$n}rem + #{$n}vw);
+}
 
 // ---
 // CSS
@@ -43,21 +46,55 @@ $fontsize-calc10: calc(10rem + 5vw);
     color: $color-white;
 }
 
+/* Text Hover Color */
+.texthover-black:hover {
+    color: $color-black;
+}
+
 /* Text Size */
 .textsize-1 {
-    font-size: $fontsize-calc1;
+    @include fontsize(1);
 }
 
 .textsize-2 {
-    font-size: $fontsize-calc2;
+    @include fontsize(2);
+}
+
+.textsize-3 {
+    @include fontsize(3);
+}
+
+.textsize-4 {
+    @include fontsize(4);
 }
 
 .textsize-5 {
-    font-size: $fontsize-calc5;
+    @include fontsize(5);
+}
+
+.textsize-6 {
+    @include fontsize(6);
+}
+
+.textsize-7 {
+    @include fontsize(7);
+}
+
+.textsize-8 {
+    @include fontsize(8);
+}
+
+.textsize-9 {
+    @include fontsize(9);
 }
 
 .textsize-10 {
-    font-size: $fontsize-calc10;
+    @include fontsize(10);
+}
+
+/* Borders */
+.border-circle {
+    border-radius: 50%;
 }
 
 /* CUSTOM COMPONENTS */
@@ -73,4 +110,21 @@ $fontsize-calc10: calc(10rem + 5vw);
 .button-white:hover {
     background: $color-green-primary;
     color: $color-white;
+}
+
+.button-green {
+    border: 3px solid $color-green-primary;
+    background: $color-green-primary;
+    color: $color-white;
+}
+
+.button-green:hover {
+    background: $color-white;
+    color: $color-green-primary;
+}
+
+/* Info Panel */
+.info-panel {
+    border: 5px solid $color-black;
+    border-radius: 1rem;
 }
