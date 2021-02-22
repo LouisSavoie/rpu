@@ -1,0 +1,45 @@
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+
+<div class="container text-center">
+
+    <div class="row">
+
+        <!-- Headings -->
+        <div class="col">
+            <h2 class="textsize-2 mb-3">edit character</h2>
+        </div>
+
+    </div>
+
+    <!-- Edit Character Form -->
+    <form action="/character?_method=PUT" method="POST" class=" info-panel mb-5">
+
+        <!-- Character Name Input -->
+        <div class="row justify-content-center mb-3">
+
+            <label for="name">name</label>
+            <div class="col-6 col-md-5 col-lg-4 col-xl-3">
+                <input type="text" class="form-control" name="character[name]" value="<%= character.name %>" maxlength="12">
+            </div>
+
+        </div>
+
+        <!-- Image URL Input -->
+        <div class="row justify-content-center mb-4">
+
+            <label for="image">image url<br>(square dimentions for best look)</label>
+            <div class="col-6 col-md-5 col-lg-4 col-xl-3">
+                <input type="text" class="form-control" id="image" name="character[image]" value="<%= character.image %>">
+            </div>
+
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn button-green btn-lg rounded-pill mb-3">submit changes!</button>
+
+    </form>
+
+</div>
+
+<%- include("../partials/copyright") %>

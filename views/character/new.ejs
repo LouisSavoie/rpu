@@ -8,21 +8,21 @@
 
                 <!-- Headings -->
                 <div class="col">
-                    <h1 class="textsize-10 mb-5">rpu</h1>
-                    <h2 class="textsize-2 mb-3">sign up</h2>
+                    <h1 class="textsize-8 mb-5">rpu</h1>
+                    <h2 class="textsize-2 mb-3">create character</h2>
                 </div>
 
             </div>
 
             <!-- Create Character Form -->
-            <form action="/character" method="POST" class="mb-5">
+            <form action="/character/new" method="POST" class="mb-5">
 
                 <!-- Character Name Input -->
                 <div class="row justify-content-center mb-3">
 
                     <label for="name">name</label>
                     <div class="col-6 col-md-5 col-lg-4 col-xl-3">
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="name" maxlength="12">
                     </div>
 
                 </div>
@@ -30,7 +30,7 @@
                 <!-- Image URL Input -->
                 <div class="row justify-content-center mb-4">
 
-                    <label for="image">image url (sqare dimentions for best look)</label>
+                    <label for="image">image url<br>(square dimentions for best look)</label>
                     <div class="col-6 col-md-5 col-lg-4 col-xl-3">
                         <input type="text" class="form-control" id="image" name="image">
                     </div>

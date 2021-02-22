@@ -112,6 +112,17 @@ $font-quicksand: 'Quicksand', sans-serif;
     color: $color-white;
 }
 
+.button-green {
+    border: 3px solid $color-green-primary;
+    background: $color-green-primary;
+    color: $color-white;
+}
+
+.button-green:hover {
+    background: $color-white;
+    color: $color-green-primary;
+}
+
 /* Info Panel */
 .info-panel {
     border: 5px solid $color-black;

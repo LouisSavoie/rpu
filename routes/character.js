@@ -14,12 +14,12 @@ router.get("/character/new", middleware.isLoggedIn, function(req, res){
 });
 
 // POST New Character Form
-router.post("/character", middleware.isLoggedIn, function(req, res){
+router.post("/character/new", middleware.isLoggedIn, function(req, res){
     // get data from form
     let user = req.user._id;
     let name = req.body.name;
     let image = req.body.image;
-    // add data to Character modle and add to DB (rpu.characters)
+    // add data to Character model and add to DB (rpu.characters)
     Character.create({
         user: user,
         name: name,
@@ -45,6 +45,27 @@ router.get("/character", (req, res) => {
         } else {
             res.render("character/show", {character: foundCharacter});
         }
+    });
+});
+
+// GET Edit Character
+router.get("/character/edit", (req, res) => {
+    Character.findOne({user: req.user.id}).exec(function(err, foundCharacter) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("character/edit", {character: foundCharacter});
+        }
+    });
+});
+
+// PUT Edit Character
+router.put("/character", (req, res) => {
+    Character.findOneAndUpdate({user: req.user.id}, req.body.character, (err, updatedCharacter) => {
+        if (err) {
+            console.log(err);
+        }
+        res.redirect("/character");
     });
 });
 
