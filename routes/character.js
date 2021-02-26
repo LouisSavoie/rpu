@@ -19,6 +19,7 @@ router.post("/character/new", middleware.isLoggedIn, function(req, res){
     let user = req.user._id;
     let name = req.body.name;
     let image = req.body.image;
+    let skill = req.body.skill;
     // add data to Character model and add to DB (rpu.characters)
     Character.create({
         user: user,
@@ -26,6 +27,7 @@ router.post("/character/new", middleware.isLoggedIn, function(req, res){
         image: image,
         level: 0,
         levelProgress: 0,
+        skills: [{name: skill, level: 0, progress: 0}]
     }, function(err, character) {
         if (err) {
             res.redirect("back");
