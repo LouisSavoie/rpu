@@ -48,7 +48,24 @@
 
       </div>
       
-      
+      <% character.skills.forEach((skill) => { %>
+        <!-- Skill -->
+        <div class="row pb-4">
+        
+          <div class="col-auto d-flex flex-column justify-content-center">
+            <span class="textsize-1"><%= skill.name %> <%= skill.level %></span>
+          </div>
+        
+          <div class="col d-flex flex-column justify-content-center">
+            <div class="progress" style="height: 100%;">
+              <div class="progress-bar" role="progressbar" style="width: <%= skill.progress %>0%;" aria-valuenow="<%= skill.progress %>" aria-valuemin="0" aria-valuemax="10">
+                <span class="textsize-1"><span><%= skill.progress %></span>/10</span>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      <% }) %>
 
     </div>
 
