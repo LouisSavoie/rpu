@@ -9,9 +9,21 @@
   background: #32c832;
 }
 
+.background-mediumgray {
+  background: #969696;
+}
+
+.background-black {
+  background: black;
+}
+
 /* Text Color */
 .textcolor-white {
   color: white;
+}
+
+.textcolor-green {
+  color: #32c832;
 }
 
 /* Text Hover Color */

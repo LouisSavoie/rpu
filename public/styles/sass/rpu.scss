@@ -8,6 +8,7 @@
 
 // Colors
 $color-white: rgb(255, 255, 255);
+$color-mediumgray: rgb(150, 150, 150);
 $color-black: rgb(0, 0, 0);
 $color-green-primary: rgb(50, 200, 50);
 
@@ -41,9 +42,21 @@ $font-quicksand: 'Quicksand', sans-serif;
     background: $color-green-primary;
 }
 
+.background-mediumgray {
+    background: $color-mediumgray;
+}
+
+.background-black {
+    background: $color-black;
+}
+
 /* Text Color */
 .textcolor-white {
     color: $color-white;
+}
+
+.textcolor-green {
+    color: $color-green-primary;
 }
 
 /* Text Hover Color */

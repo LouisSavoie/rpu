@@ -3,7 +3,8 @@
 
 <div class="container">
 
-  <a class="btn button-green rounded-pill" href="/character/edit" role="button">back</a>
+  <!-- TEMPORARY EDIT VIEW BUTTON FOR TESTING -->
+  <a class="btn button-green rounded-pill" href="/character/edit" role="button">EDIT</a>
 
   <!-- Character Info -->
   <div class="row info-panel p-4 mb-5">
@@ -39,9 +40,9 @@
         </div>
 
         <div class="col d-flex flex-column justify-content-center">
-          <div class="progress" style="height: 100%;">
-            <div class="progress-bar" role="progressbar" style="width: <%= character.levelProgress %>0%;" aria-valuenow="<%= character.levelProgress %>" aria-valuemin="0" aria-valuemax="10">
-              <span class="textsize-1"><span><%= character.levelProgress %></span>/10</span>
+          <div class="progress background-mediumgray" style="height: 100%;">
+            <div class="progress-bar textsize-1" role="progressbar" style="width: <%= character.levelProgress %>0%; overflow: visible;" aria-valuenow="<%= character.levelProgress %>" aria-valuemin="0" aria-valuemax="10">
+              <span class="px-2"><%= character.levelProgress %>/10</span>
             </div>
           </div>
         </div>
@@ -57,9 +58,9 @@
           </div>
         
           <div class="col d-flex flex-column justify-content-center">
-            <div class="progress" style="height: 100%;">
-              <div class="progress-bar" role="progressbar" style="width: <%= skill.progress %>0%;" aria-valuenow="<%= skill.progress %>" aria-valuemin="0" aria-valuemax="10">
-                <span class="textsize-1"><span><%= skill.progress %></span>/10</span>
+            <div class="progress background-mediumgray" style="height: 100%;">
+              <div class="progress-bar textsize-1" role="progressbar" style="width: <%= skill.progress %>0%; overflow: visible;" aria-valuenow="<%= skill.progress %>" aria-valuemin="0" aria-valuemax="10">
+                <span class="px-2"><%= skill.progress %>/10</span>
               </div>
             </div>
           </div>
