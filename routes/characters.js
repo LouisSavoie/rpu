@@ -49,7 +49,7 @@ router.get("/characters/:id", middleware.isLoggedIn, (req, res) => {
 });
 
 // GET Edit Character
-router.get("/characters/:id/edit", middleware.isLoggedIn, (req, res) => {
+router.get("/characters/:id/edit", middleware.checkCharacterOwnership, (req, res) => {
     Character.findById(req.params.id, function(err, foundCharacter) {
         if (err) {
             console.log(err);
@@ -61,7 +61,7 @@ router.get("/characters/:id/edit", middleware.isLoggedIn, (req, res) => {
 });
 
 // PUT Edit Character
-router.put("/characters/:id", (req, res) => {
+router.put("/characters/:id", middleware.checkCharacterOwnership, (req, res) => {
     Character.findOneAndUpdate(req.params.id, req.body.character, (err, updatedCharacter) => {
         if (err) {
             console.log(err);
