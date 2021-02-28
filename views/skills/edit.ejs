@@ -1,0 +1,38 @@
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+
+<div class="container text-center">
+
+    <div class="row">
+
+        <!-- Headings -->
+        <div class="col">
+            <h2 class="textsize-2 mb-3">edit skill</h2>
+        </div>
+
+    </div>
+
+    <!-- Edit Skill Form -->
+    <form action="/characters/<%= character_id %>/skills/<%= skill._id %>?_method=PUT" method="POST" class="row justify-content-center">
+        <div class="col-8 info-panel p-4 mb-5">
+
+            <!-- Skill Name Input -->
+            <div class="row justify-content-center mb-4">
+
+                <label class="textcolor-green" for="name">name</label>
+                <div class="col-8 col-sm-7 col-md-5 col-lg-4 col-xl-3">
+                    <input type="text" class="form-control" name="skill[name]" value="<%= skill.name %>" maxlength="16">
+                </div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn button-green btn-lg rounded-pill">submit changes!</button>
+
+            </div>
+
+    </form>
+
+</div>
+
+<%- include("../partials/footer") %>

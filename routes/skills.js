@@ -55,8 +55,7 @@ router.get("/characters/:id/skills/:skill_id/edit", middleware.checkCharacterOwn
         if(err){
             res.redirect("back");
         } else {
-            console.log({skill: foundSkill})
-            res.render("skills/edit", {skill: foundSkill});
+            res.render("skills/edit", {character_id: req.params.id, skill: foundSkill});
         }
     });
 });
