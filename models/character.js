@@ -9,7 +9,12 @@ const characterSchema = new mongoose.Schema({
     image: String,
     level: Number,
     levelProgress: Number,
-    skills: []
+    skills: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Skill"
+        }
+    ]
 });
 
 module.exports = mongoose.model("Character", characterSchema);
