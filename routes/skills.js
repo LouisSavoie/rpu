@@ -9,7 +9,7 @@ const middleware = require("../middleware/middleware");
 // ====================
 
 // GET New Skill Form
-router.get("/characters/:id/skills/new", middleware.isLoggedIn, function(req, res){
+router.get("/characters/:id/skills/new", middleware.checkCharacterOwnership, function(req, res){
     Character.findById(req.params.id, function(err, character){
         if(err){
             console.log(err);
@@ -21,7 +21,7 @@ router.get("/characters/:id/skills/new", middleware.isLoggedIn, function(req, re
 });
 
 // POST New Skill Form
-router.post("/characters/:id/skills", middleware.isLoggedIn, function(req, res){
+router.post("/characters/:id/skills", middleware.checkCharacterOwnership, function(req, res){
     // Find Character by id
     Character.findById(req.params.id, function(err, character){
         if(err){
@@ -45,6 +45,18 @@ router.post("/characters/:id/skills", middleware.isLoggedIn, function(req, res){
                 res.redirect("/characters/" + character._id);
             }
           });
+        }
+    });
+});
+
+// GET Edit Skill Form
+router.get("/characters/:id/skills/:skill_id/edit", middleware.checkCharacterOwnership, function(req, res){
+    Skill.findById(req.params.skill_id, function(err, foundSkill){
+        if(err){
+            res.redirect("back");
+        } else {
+            console.log({skill: foundSkill})
+            res.render("skills/edit", {skill: foundSkill});
         }
     });
 });
