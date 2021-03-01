@@ -71,4 +71,15 @@ router.put("/characters/:id/skills/:skill_id", middleware.checkCharacterOwnershi
     })
 });
 
+// GET Delete Skill Form
+router.get("/characters/:id/skills/:skill_id/delete", middleware.checkCharacterOwnership, function(req, res){
+    Skill.findById(req.params.skill_id, function(err, foundSkill){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.render("skills/delete", {character_id: req.params.id, skill: foundSkill});
+        }
+    });
+});
+
 module.exports = router;
