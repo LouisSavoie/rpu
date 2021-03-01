@@ -5,8 +5,6 @@
 
   <!-- TEMPORARY EDIT VIEW BUTTON FOR TESTING -->
   <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/edit" role="button">EDIT</a>
-  <!-- TEMPORARY NEW SKILL VIEW BUTTON FOR TESTING -->
-  <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button">NEW SKILL</a>
 
   <!-- Character Info -->
   <div class="row info-panel p-4 mb-5">
@@ -30,12 +28,12 @@
   </div>
 
   <!-- Progress -->
-  <div class="row info-panel p-4 pb-0 mb-5">
+  <div class="row info-panel pt-4 px-2 px-md-4 pb-1  mb-5">
 
     <div class="col-12">
 
       <!-- Level -->
-      <div class="row pb-4">
+      <div class="row pb-3">
 
         <div class="col-auto d-flex flex-column justify-content-center">
           <span class="textsize-1">level <%= character.level %></span>
@@ -49,6 +47,13 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="row d-flex justify-content-end pb-3">
+        <div class="col-auto">
+          <!-- New Skill Button -->
+          <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button"><i class="fas fa-plus-square"></i></a>
+        </div>
       </div>
       
       <% character.skills.forEach((skill) => { %>
