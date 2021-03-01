@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
             return res.render("/signup")
         }
         passport.authenticate("local")(req, res, function() {
-            res.redirect("/character/new");
+            res.redirect("/characters/new");
         });
     });
 });
@@ -43,7 +43,7 @@ router.get("/login", (req, res) => {
 // POST Log In Form
 router.post("/login", passport.authenticate("local",
   {
-      successRedirect: "/character",
+      successRedirect: "/characters/:id",
       failureRedirect: "/login"
   }), (req, res) => {
 

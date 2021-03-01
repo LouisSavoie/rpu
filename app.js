@@ -9,13 +9,15 @@ const LocalStrategy = require("passport-local");
 // For PUT and DELELTE requests in HTML forms
 const methodOverride = require("method-override");
 // Mongoose Models
+const Skill = require("./models/skill");
 const Character = require("./models/character");
 const User = require("./models/user");
 // For enviromental variables
 require('dotenv').config();
 
 // REQUIRE ROUTES
-const characterRoutes = require('./routes/character');
+const skillRoutes = require('./routes/skills');
+const characterRoutes = require('./routes/characters');
 const indexRoutes = require('./routes/index');
 
 // CONNECT MONGOOSE TO MONGODB
@@ -53,6 +55,7 @@ app.use(function(req, res, next){
 });
 
 // USE ROUTES
+app.use(skillRoutes);
 app.use(characterRoutes);
 app.use(indexRoutes);
 

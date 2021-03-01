@@ -1,0 +1,98 @@
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+
+<div class="container">
+
+  <!-- TEMPORARY EDIT VIEW BUTTON FOR TESTING -->
+  <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/edit" role="button">EDIT</a>
+
+  <!-- Character Info -->
+  <div class="row info-panel p-4 mb-5">
+
+    <div class="col-12 col-sm-5 col-md-4 d-flex justify-content-center mb-4 mb-sm-0 p-0">
+      <!-- Character Image -->
+      <img class="border-circle" src="<%= character.image %>" style="width:200px;height:200px;" alt="Avatar">
+    </div>
+
+    <div class="col-12 col-sm-7 col-md-8 d-flex flex-column justify-content-evenly align-items-center align-items-sm-start ps-sm-4 p-0">
+      <div class="row">
+        <!-- Character Name -->
+        <h2 class="textsize-2 mb-0 text-center text-sm-start"><%= character.name %></h2>
+      </div>
+      <div class="row">
+        <!-- Character Level -->
+        <p class="textsize-2 mb-0">level <%= character.level %></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Progress -->
+  <div class="row info-panel pt-4 px-2 px-md-4 pb-1  mb-5">
+
+    <div class="col-12">
+
+      <!-- Level -->
+      <div class="row pb-3">
+
+        <div class="col-auto d-flex flex-column justify-content-center">
+          <span class="textsize-1">level <%= character.level %></span>
+        </div>
+
+        <div class="col d-flex flex-column justify-content-center">
+          <div class="progress background-mediumgray" style="height: 100%;">
+            <div class="progress-bar textsize-1" role="progressbar" style="width: <%= character.levelProgress %>0%; overflow: visible;" aria-valuenow="<%= character.levelProgress %>" aria-valuemin="0" aria-valuemax="10">
+              <span class="px-2"><%= character.levelProgress %>/10</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row d-flex justify-content-end pb-3">
+        <div class="col-auto">
+          <!-- New Skill Button -->
+          <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button"><i class="fas fa-plus-square"></i></a>
+        </div>
+      </div>
+      
+      <% character.skills.forEach((skill) => { %>
+        <!-- Skill -->
+        <div class="row pb-4">
+        
+          <div class="col-auto order-1 order-sm-1 d-flex flex-column justify-content-center">
+            <span class="textsize-1"><%= skill.name %> <%= skill.level %></span>
+          </div>
+        
+          <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
+            <div class="progress background-mediumgray" style="height: 80%;">
+              <div class="progress-bar textsize-1" role="progressbar" style="width: <%= skill.progress %>0%; overflow: visible;" aria-valuenow="<%= skill.progress %>" aria-valuemin="0" aria-valuemax="10">
+                <span class="px-2"><%= skill.progress %>/10</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-sm-auto order-2 order-sm-3 d-flex justify-content-end">
+            <!-- Edit Skill Button -->
+            <a class="btn button-green rounded-pill me-3" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button">edit</a>
+            <!-- Delete Skill Button -->
+            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-minus-circle"></i></a>
+          </div>
+        
+        </div>
+      <% }) %>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- temporary enable tooltips script -->
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+<%- include("../partials/footer") %>
