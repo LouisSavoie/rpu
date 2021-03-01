@@ -60,4 +60,15 @@ router.get("/characters/:id/skills/:skill_id/edit", middleware.checkCharacterOwn
     });
 });
 
+// PUT Edit Skill Form
+router.put("/characters/:id/skills/:skill_id", middleware.checkCharacterOwnership, function(req, res){
+    Skill.findByIdAndUpdate(req.params.skill_id, req.body.skill, function(err, updatedSkill){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.redirect("/characters/" + req.params.id);
+        }
+    })
+});
+
 module.exports = router;
