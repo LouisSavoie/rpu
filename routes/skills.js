@@ -68,7 +68,7 @@ router.put("/characters/:id/skills/:skill_id", middleware.checkCharacterOwnershi
         } else {
             res.redirect("/characters/" + req.params.id);
         }
-    })
+    });
 });
 
 // GET Delete Skill Form
@@ -78,6 +78,25 @@ router.get("/characters/:id/skills/:skill_id/delete", middleware.checkCharacterO
             res.redirect("back");
         } else {
             res.render("skills/delete", {character_id: req.params.id, skill: foundSkill});
+        }
+    });
+});
+
+// DELETE Delete Skill
+router.delete("/characters/:id/skills/:skill_id", middleware.checkCharacterOwnership, function(req, res){
+    Character.findByIdAndUpdate(req.params.id, { $pull: { 'skills': req.params.skill_id } }, { returnOriginal: false }, function(err, foundCharacter){
+        if(err){
+            console.log(err)
+            res.redirect("back");
+        } else {
+            Skill.findByIdAndRemove(req.params.skill_id, function(err, foundSkill){
+                if(err){
+                    console.log(err)
+                    res.redirect("back");
+                } else {
+                    res.redirect("/characters/" + req.params.id);
+                }
+            });
         }
     });
 });
