@@ -55,11 +55,11 @@
         <!-- Skill -->
         <div class="row pb-4">
         
-          <div class="col-auto d-flex flex-column justify-content-center">
+          <div class="col-auto order-1 order-sm-1 d-flex flex-column justify-content-center">
             <span class="textsize-1"><%= skill.name %> <%= skill.level %></span>
           </div>
         
-          <div class="col d-flex flex-column justify-content-center">
+          <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
             <div class="progress background-mediumgray" style="height: 100%;">
               <div class="progress-bar textsize-1" role="progressbar" style="width: <%= skill.progress %>0%; overflow: visible;" aria-valuenow="<%= skill.progress %>" aria-valuemin="0" aria-valuemax="10">
                 <span class="px-2"><%= skill.progress %>/10</span>
@@ -67,9 +67,9 @@
             </div>
           </div>
 
-          <!-- TEMPORARY EDIT SKILL VIEW BUTTON FOR TESTING -->
-          <div class="col">
-            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button">EDIT SKILL</a>
+          <!-- Edit Skill Button -->
+          <div class="col col-sm-auto order-2 order-sm-3 d-flex justify-content-end">
+            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button">edit</a>
           </div>
         
         </div>
