@@ -65,16 +65,18 @@
           </div>
         
           <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
-            <div class="progress background-mediumgray" style="height: 100%;">
+            <div class="progress background-mediumgray" style="height: 80%;">
               <div class="progress-bar textsize-1" role="progressbar" style="width: <%= skill.progress %>0%; overflow: visible;" aria-valuenow="<%= skill.progress %>" aria-valuemin="0" aria-valuemax="10">
                 <span class="px-2"><%= skill.progress %>/10</span>
               </div>
             </div>
           </div>
 
-          <!-- Edit Skill Button -->
           <div class="col col-sm-auto order-2 order-sm-3 d-flex justify-content-end">
-            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button">edit</a>
+            <!-- Edit Skill Button -->
+            <a class="btn button-green rounded-pill me-3" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button">edit</a>
+            <!-- Delete Skill Button -->
+            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-minus-circle"></i></a>
           </div>
         
         </div>
