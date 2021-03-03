@@ -38,7 +38,7 @@ router.post("/characters", middleware.isLoggedIn, function(req, res){
 
 // GET Character
 router.get("/characters/:id", middleware.isLoggedIn, (req, res) => {
-    Character.findOne({user: req.user.id}).populate("skills").exec(function(err, foundCharacter) {
+    Character.findOne({user: req.params.id}).populate("skills").exec(function(err, foundCharacter) {
         if (err) {
             console.log(err);
             res.redirect("/");

@@ -25,12 +25,14 @@
 
     </div>
 
-    <!-- Edit Character Button -->
-    <div class="row">
-        <div class="col d-flex justify-content-end mb-2 pe-4">
-            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/edit" role="button"><i class="fas fa-user-edit"></i></a>
+    <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+        <!-- Edit Character Button -->
+        <div class="row">
+            <div class="col d-flex justify-content-end mb-2 pe-4">
+                <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/edit" role="button"><i class="fas fa-user-edit"></i></a>
+            </div>
         </div>
-    </div>
+    <% } %>
 
     <!-- Progress -->
     <div class="row info-panel pt-4 px-2 px-md-4 pb-1  mb-5">
@@ -58,10 +60,12 @@
 
             <div class="row d-flex justify-content-end pb-3">
 
-                <div class="col-auto">
-                    <!-- New Skill Button -->
-                    <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button"><i class="fas fa-plus"></i></a>
-                </div>
+                <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+                    <div class="col-auto">
+                        <!-- New Skill Button -->
+                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button"><i class="fas fa-plus"></i></a>
+                    </div>
+                <% } %>
 
             </div>
 
@@ -84,12 +88,13 @@
                     </div>
 
                     <div class="col col-sm-auto order-2 order-sm-3 d-flex justify-content-end">
-
-                        <!-- Edit Skill Button -->
-                        <a class="btn button-green rounded-pill me-3" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button"><i class="fas fa-pencil-alt"></i></a>
-                        
-                        <!-- Delete Skill Button -->
-                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-trash-alt"></i></a>
+                        <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+                            <!-- Edit Skill Button -->
+                            <a class="btn button-green rounded-pill me-3" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button"><i class="fas fa-pencil-alt"></i></a>
+                            
+                            <!-- Delete Skill Button -->
+                            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-trash-alt"></i></a>
+                        <% } %>
                     
                     </div>
 

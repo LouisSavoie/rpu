@@ -43,9 +43,9 @@ router.get("/login", (req, res) => {
 // POST Log In Form
 router.post("/login", passport.authenticate("local",
   {
-      successRedirect: "/characters/:id",
       failureRedirect: "/login"
   }), (req, res) => {
+    res.redirect("/characters/" + req.user._id)
 
 });
 
