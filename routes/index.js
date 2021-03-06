@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const { deserializeUser } = require("passport");
 const User = require("../models/user");
+const Character = require("../models/character");
 
 // ====================
 //     Index Routes
@@ -48,8 +49,13 @@ router.post("/login", passport.authenticate("local",
   {
       failureRedirect: "/login"
   }), (req, res) => {
-    res.redirect("/characters/" + req.user._id)
-
+    Character.findOne({user: req.user._id}, function(err, foundCharacter) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/characters/" + foundCharacter._id);
+        }
+    });
 });
 
 // GET Log Out
