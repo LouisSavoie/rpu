@@ -12,13 +12,13 @@
 
     </div>
 
-    <!-- Edit Skill Form -->
+    <!-- Delete Skill Form -->
     <form action="/characters/<%= character_id %>/skills/<%= skill._id %>?_method=DELETE" method="POST" class="row justify-content-center">
         <div class="col-8 info-panel p-4 mb-5">
 
-            <!-- Skill Name Input -->
             <div class="row text-center mb-4">
 
+                <!-- Delete Skill Confirmation Message -->
                 <p class="textcolor-green">
                     are you sure you want to delete <%= skill.name %>?<br>
                     this will aslo decrease your character level.
@@ -29,7 +29,7 @@
             <!-- Submit Button -->
             <button type="submit" class="btn button-green btn-lg rounded-pill">delete skill</button>
 
-            </div>
+        </div>
 
     </form>
 

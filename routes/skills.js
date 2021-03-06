@@ -5,7 +5,7 @@ const Character = require("../models/character");
 const middleware = require("../middleware/middleware");
 
 // ====================
-//   Skill Routes
+//     Skill Routes
 // ====================
 
 // GET New Skill Form
@@ -14,7 +14,6 @@ router.get("/characters/:id/skills/new", middleware.checkCharacterOwnership, fun
         if(err){
             console.log(err);
         } else {
-            // Render the new skill form
             res.render("skills/new", {character: character});
         }
     });
@@ -22,26 +21,26 @@ router.get("/characters/:id/skills/new", middleware.checkCharacterOwnership, fun
 
 // POST New Skill Form
 router.post("/characters/:id/skills", middleware.checkCharacterOwnership, function(req, res){
-    // Find Character by id
+    // find Character by id
     Character.findById(req.params.id, function(err, character){
         if(err){
             console.log(err);
             res.redirect("/characters/" + character._id);
         } else {
-          // Create new Skill
+          // create new Skill
           Skill.create(req.body.skill, function(err, skill){
             if(err){
                 console.log(err);
             } else {
-                // Add Character id to Skill
+                // add Character id to Skill
                 skill.user = req.user._id;
                 skill.level = 0;
                 skill.progress = 0;
                 skill.save();
-                // Connect new Skill to Character
+                // connect new Skill to Character
                 character.skills.push(skill);
                 character.save();
-                // Redirect to chracter show page
+                // redirect to chracter show page
                 res.redirect("/characters/" + character._id);
             }
           });
@@ -84,11 +83,13 @@ router.get("/characters/:id/skills/:skill_id/delete", middleware.checkCharacterO
 
 // DELETE Delete Skill
 router.delete("/characters/:id/skills/:skill_id", middleware.checkCharacterOwnership, function(req, res){
+    // find character, delete skill id from character's skills array
     Character.findByIdAndUpdate(req.params.id, { $pull: { 'skills': req.params.skill_id } }, { returnOriginal: false }, function(err, foundCharacter){
         if(err){
             console.log(err)
             res.redirect("back");
         } else {
+            // find skill and remove from database
             Skill.findByIdAndRemove(req.params.skill_id, function(err, foundSkill){
                 if(err){
                     console.log(err)

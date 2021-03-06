@@ -1,8 +1,10 @@
 const Character = require("../models/character");
 
+// Create middleware object
 let middlewareObj = {};
 
-// CHECK FOR LOGGED IN
+// CHECK LOGGED IN
+// Check if the user making request is logged in by checking if they are authenticated by passport
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -10,6 +12,8 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/login");
 };
 
+// CHECK CHARACTER OWNERSHIP
+// Check if user making request is authenticated by passport and owns the requested character
 middlewareObj.checkCharacterOwnership = function(req, res, next){
     if(req.isAuthenticated()){
         Character.findById(req.params.id, function(err, foundCharacter){
@@ -29,4 +33,5 @@ middlewareObj.checkCharacterOwnership = function(req, res, next){
     }
 };
 
+//  Export middleware object
 module.exports = middlewareObj;
