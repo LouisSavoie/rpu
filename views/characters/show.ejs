@@ -97,10 +97,10 @@
                         <!-- Show if user owns character -->
                         <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
                             <!-- Edit Skill Button -->
-                            <a class="btn button-green rounded-pill me-3" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn button-green rounded-pill me-3" style="height: 45px;" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button"><i class="fas fa-pencil-alt"></i></a>
                             
                             <!-- Delete Skill Button -->
-                            <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-trash-alt"></i></a>
+                            <a class="btn button-green rounded-pill" style="height: 45px;" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-trash-alt"></i></a>
                         <% } %>
                     
                     </div>
