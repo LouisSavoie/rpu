@@ -29,7 +29,7 @@
         <!-- Edit Character Button -->
         <div class="row">
             <div class="col d-flex justify-content-end mb-2 pe-4">
-                <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/edit" role="button"><i class="fas fa-user-edit"></i></a>
+                <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/edit" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="edit character"><i class="fas fa-user-edit"></i></a>
             </div>
         </div>
     <% } %>
@@ -67,7 +67,7 @@
                 <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
                     <div class="col-auto">
                         <!-- New Skill Button -->
-                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button"><i class="fas fa-plus"></i></a>
+                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new skill"><i class="fas fa-plus"></i></a>
                     </div>
                 <% } %>
 
@@ -97,10 +97,10 @@
                         <!-- Show if user owns character -->
                         <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
                             <!-- Edit Skill Button -->
-                            <a class="btn button-green rounded-pill me-3" style="height: 45px;" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn button-green rounded-pill me-3" style="height: 45px;" href="/characters/<%= character._id %>/skills/<%= skill._id %>/edit" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="edit skill"><i class="fas fa-pencil-alt"></i></a>
                             
                             <!-- Delete Skill Button -->
-                            <a class="btn button-green rounded-pill" style="height: 45px;" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button"><i class="fas fa-trash-alt"></i></a>
+                            <a class="btn button-green rounded-pill" style="height: 45px;" href="/characters/<%= character._id %>/skills/<%= skill._id %>/delete" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="delete skill"><i class="fas fa-trash-alt"></i></a>
                         <% } %>
                     
                     </div>
