@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// SKILL MONGOOSE MODEL
 const skillSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,

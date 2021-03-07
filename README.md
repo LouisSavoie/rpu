@@ -2,7 +2,7 @@
 
 Build real world habits and skills by turning your life into a Role Playing Game!
 
-Create your character and add skills to it that you want to get batter at. Then go practice! When you're done, you can post a short message about what you did and even add a picture if you have one. Every time you post, the related skill will increase. If it increases 10 times, that skill levels up! And if 10 skills level up... YOU level up! Congrats :D
+Create your character and add skills to it that you want to get better at. Then go practice! When you're done, you can post a short message about what you did and even add a picture if you have one. Every time you post, the related skill will increase. If it increases 10 times, that skill levels up! And if 10 skills level up... YOU level up! Congrats :D
 
 Placeholder => **[Click Here to check it out!]()**
 
@@ -34,14 +34,11 @@ Placeholder => **[Click Here to check it out!]()**
 **Social Component**
 
 - Following
-- Guilds
 - Activity Feed
-- Comments on posts
+- Likes on posts
 
 **Gaming Component**
 
 - Combat
 - Monsters
-- Items
-- Shop
 - Raids

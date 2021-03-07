@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const { deserializeUser } = require("passport");
 const User = require("../models/user");
+const Character = require("../models/character");
 
 // ====================
 //     Index Routes
@@ -22,11 +23,14 @@ router.get("/signup", (req, res) => {
 
 // POST Sign Up Form
 router.post("/signup", (req, res) => {
+    // get data from form
     let newUser = new User({username: req.body.username});
+    // add data to User model and add to DB (rpu.users)
     User.register(newUser, req.body.password, function(err, user) {
         if(err){
             return res.render("/signup")
         }
+        // authenticate user login through passort and redirect to new character view
         passport.authenticate("local")(req, res, function() {
             res.redirect("/characters/new");
         });
@@ -43,10 +47,15 @@ router.get("/login", (req, res) => {
 // POST Log In Form
 router.post("/login", passport.authenticate("local",
   {
-      successRedirect: "/characters/:id",
       failureRedirect: "/login"
   }), (req, res) => {
-
+    Character.findOne({user: req.user._id}, function(err, foundCharacter) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/characters/" + foundCharacter._id);
+        }
+    });
 });
 
 // GET Log Out

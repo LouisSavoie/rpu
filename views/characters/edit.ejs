@@ -16,19 +16,19 @@
     <form action="/characters/<%= character._id %>?_method=PUT" method="POST" class="row justify-content-center">
         <div class="col-8 info-panel p-4 mb-5">
 
-            <!-- Character Name Input -->
             <div class="row justify-content-center mb-4">
 
+                <!-- Character Name Input -->
                 <label class="textcolor-green" for="name">name</label>
                 <div class="col-8 col-sm-7 col-md-5 col-lg-4 col-xl-3">
-                    <input type="text" class="form-control" name="character[name]" value="<%= character.name %>" maxlength="12">
+                    <input type="text" class="form-control" name="character[name]" value="<%= character.name %>" maxlength="12" autofocus>
                 </div>
 
             </div>
 
-            <!-- Image URL Input -->
             <div class="row justify-content-center mb-5">
 
+                <!-- Character Image URL Input -->
                 <label class="textcolor-green" for="image">image url<br>(square dimentions for best look)</label>
                 <div class="col-8 col-sm-7 col-md-5 col-lg-4 col-xl-3">
                     <input type="text" class="form-control" id="image" name="character[image]" value="<%= character.image %>">
