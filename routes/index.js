@@ -64,4 +64,9 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
+// GET Help Page
+router.get("/help", (req, res) => {
+    res.render("help");
+});
+
 module.exports = router;
