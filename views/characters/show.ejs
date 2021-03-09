@@ -111,6 +111,12 @@
         </div>
 
     </div>
+
+    <!-- Show if user owns character -->
+    <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+        <!-- New Post Button -->
+        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/posts/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new post"><i class="fas fa-file-signature"></i></a>
+    <% } %>
 </div>
 
 <!-- temporary enable tooltips script -->
