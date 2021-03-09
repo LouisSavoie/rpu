@@ -9,6 +9,7 @@ const LocalStrategy = require("passport-local");
 // For PUT and DELELTE requests in HTML forms
 const methodOverride = require("method-override");
 // Mongoose Models
+const Post = require("./models/post");
 const Skill = require("./models/skill");
 const Character = require("./models/character");
 const User = require("./models/user");

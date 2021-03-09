@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Post = require("../models/post");
 const Skill = require("../models/skill");
 const Character = require("../models/character");
 const middleware = require("../middleware/middleware");
