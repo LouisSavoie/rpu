@@ -14,13 +14,13 @@
 
     <!-- New Post Form -->
     <form action="/characters/<%= character._id %>/posts" method="POST" class="row justify-content-center">
-        <div class="col-8 info-panel p-4 mb-5">
+        <div class="col-10 col-md-8 info-panel p-4 mb-5">
 
             <div class="row justify-content-center mb-4">
 
                 <!-- Post Skill Input -->
                 <label class="textcolor-green" for="text">pick a skill</label>
-                <div class="col-8 col-sm-7 col-md-5 col-lg-4 col-xl-3">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <select class="form-select" name="post[skill]">
                         <!-- Iterate through Skills Array -->
                         <% character.skills.forEach((skill) => { %>
@@ -35,8 +35,8 @@
 
                 <!-- Post Text Input -->
                 <label class="textcolor-green" for="text">details</label>
-                <div class="col-8 col-sm-7 col-md-5 col-lg-4 col-xl-3">
-                    <textarea class="form-control" name="post[text]" maxlength="16" autofocus></textarea>
+                <div class="col-12 col-md-8">
+                    <textarea class="form-control" name="post[text]" maxlength="140" style="height: 5rem;" autofocus></textarea>
                 </div>
 
             </div>
@@ -45,7 +45,7 @@
 
                 <!-- Post Image URL Input -->
                 <label class="textcolor-green" for="image">image url</label>
-                <div class="col-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <input type="text" class="form-control" name="post[image]">
                 </div>
 
