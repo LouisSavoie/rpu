@@ -10,7 +10,7 @@ const middleware = require("../middleware/middleware");
 
 // GET New Post Form
 router.get("/characters/:id/posts/new", middleware.checkCharacterOwnership, function(req, res){
-    Character.findById(req.params.id, function(err, character){
+    Character.findById(req.params.id).populate("skills").exec(function(err, character){
         if(err){
             console.log(err);
         } else {
