@@ -16,6 +16,7 @@ const User = require("./models/user");
 require('dotenv').config();
 
 // REQUIRE ROUTES
+const postRoutes = require('./routes/posts');
 const skillRoutes = require('./routes/skills');
 const characterRoutes = require('./routes/characters');
 const indexRoutes = require('./routes/index');
@@ -55,6 +56,7 @@ app.use(function(req, res, next){
 });
 
 // USE ROUTES
+app.use(postRoutes);
 app.use(skillRoutes);
 app.use(characterRoutes);
 app.use(indexRoutes);
