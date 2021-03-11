@@ -61,4 +61,17 @@ router.get("/characters/:id/posts/:post_id/edit", middleware.checkCharacterOwner
     });
 });
 
+// PUT Edit Post Form
+
+// GET Delete Post Form
+router.get("/characters/:id/posts/:post_id/delete", middleware.checkCharacterOwnership, function(req, res){
+    Post.findById(req.params.post_id, function(err, foundPost){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.render("posts/delete", {character_id: req.params.id, post: foundPost});
+        }
+    });
+});
+
 module.exports = router;
