@@ -50,4 +50,15 @@ router.post("/characters/:id/posts", middleware.checkCharacterOwnership, functio
     });
 });
 
+// GET Edit Post Form
+router.get("/characters/:id/posts/:post_id/edit", middleware.checkCharacterOwnership, function(req, res){
+    Post.findById(req.params.post_id, function(err, foundPost){
+        if(err){
+            res.redirect("back");
+        } else {
+            res.render("posts/edit", {character_id: req.params.id, post: foundPost});
+        }
+    });
+});
+
 module.exports = router;
