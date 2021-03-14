@@ -83,4 +83,25 @@ router.get("/characters/:id/posts/:post_id/delete", middleware.checkCharacterOwn
     });
 });
 
+// DELETE Delete Post
+router.delete("/characters/:id/posts/:post_id", middleware.checkCharacterOwnership, function(req, res){
+    // find character, delete post id from character's posts array
+    Character.findByIdAndUpdate(req.params.id, { $pull: { 'posts': req.params.post_id } }, { returnOriginal: false }, function(err, foundCharacter){
+        if(err){
+            console.log(err)
+            res.redirect("back");
+        } else {
+            // find post and remove from database
+            Post.findByIdAndRemove(req.params.post_id, function(err, foundPost){
+                if(err){
+                    console.log(err)
+                    res.redirect("back");
+                } else {
+                    res.redirect("/characters/" + req.params.id);
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;
