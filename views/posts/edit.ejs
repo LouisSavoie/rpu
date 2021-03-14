@@ -1,1 +1,48 @@
-<h1>successed!</h1>
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+
+<div class="container text-center">
+
+    <div class="row">
+
+        <!-- Headings -->
+        <div class="col">
+            <h2 class="textsize-2 mb-3">edit post</h2>
+        </div>
+
+    </div>
+
+    <!-- Edit Post Form -->
+    <form action="/characters/<%= character_id %>/posts/<%= post._id %>?_method=PUT" method="POST" class="row justify-content-center">
+        <div class="col-10 col-md-8 info-panel p-4 mb-5">
+
+            <div class="row justify-content-center mb-4">
+
+                <!-- Post Text Input -->
+                <label class="textcolor-green" for="text">details</label>
+                <div class="col-12 col-md-8">
+                    <textarea class="form-control" name="post[text]" maxlength="140" style="height: 5rem;" autofocus><%= post.text %></textarea>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center mb-4">
+
+                <!-- Post Image URL Input -->
+                <label class="textcolor-green" for="image">image url</label>
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <input type="text" class="form-control" name="post[image]" value="<%= post.image %>">
+                </div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn button-green btn-lg rounded-pill">submit changes!</button>
+
+            </div>
+
+    </form>
+
+</div>
+
+<%- include("../partials/footer") %>
