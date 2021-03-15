@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const Skill = require("../models/skill");
 const Character = require("../models/character");
 const middleware = require("../middleware/middleware");
+const { populate } = require("../models/skill");
 
 // ====================
 //   Character Routes
@@ -38,12 +40,24 @@ router.post("/characters", middleware.isLoggedIn, function(req, res){
 
 // GET Character
 router.get("/characters/:id", middleware.isLoggedIn, (req, res) => {
-    Character.findById(req.params.id).populate("skills").exec(function(err, foundCharacter) {
+    Character.findById(req.params.id).populate("skills").populate({ path: "posts", populate: { path: "skill"}}).exec(function(err, foundCharacter) {
         if (err) {
             console.log(err);
             res.redirect("/");
         } else {
-            res.render("characters/show", {character: foundCharacter});
+            // populate array of posts to render on character show view, up to 3 most recent posts
+            let postsForRender = [];
+            if (foundCharacter.posts.length > 0) {
+                for (let i = foundCharacter.posts.length - 1; i >= foundCharacter.posts.length - 3; i--){
+                    if (i >= 0){
+                        postsForRender.push( foundCharacter.posts[i] );
+                    }
+                };
+            }
+            res.render("characters/show", {
+                character: foundCharacter,
+                posts: postsForRender
+            });
         }
     });
 });

@@ -112,6 +112,69 @@
 
     </div>
 
+    <!-- Posts Section-->
+    <div class="row info-panel pt-4 px-2 px-md-4 pb-1 mb-5">
+
+        <div class="col-12">
+
+            <div class="row d-flex justify-content-end pb-3">
+
+                <!-- Show if user owns character -->
+                <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+                    <div class="col-auto">
+                        <!-- New Post Button -->
+                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/posts/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new post"><i class="fas fa-plus"></i></a>
+                    </div>
+                <% } %>
+
+            </div>
+
+            <!-- Display recent 3 Posts from Character's Posts Array -->
+            <% if (character.posts.length > 0) {%>
+                <% posts.forEach((post) => { %>
+                    <div class="row pb-4">
+
+                        <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
+
+                            <!-- Post Image -->
+                            <img src="<%= post.image %>" style="max-height: 100px; max-width: 100px;" alt="">
+
+                        </div>
+
+                        <div class="col-auto order-1 order-sm-1 d-flex flex-column justify-content-center">
+
+                            <!-- Post Skill -->
+                            <p><%= post.skill.name %></p>
+
+                        </div>
+
+                        <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
+
+                            <!-- Post Text -->
+                            <p><%= post.text %></p>
+
+                        </div>
+
+                        <div class="col col-sm-auto order-2 order-sm-3 d-flex justify-content-end">
+                            <!-- Show if user owns character -->
+                            <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+                                <!-- Edit Post Button -->
+                                <a class="btn button-green rounded-pill me-3" style="height: 45px;" href="/characters/<%= character._id %>/posts/<%= post._id %>/edit" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="edit post"><i class="fas fa-pencil-alt"></i></a>
+                                
+                                <!-- Delete Post Button -->
+                                <a class="btn button-green rounded-pill" style="height: 45px;" href="/characters/<%= character._id %>/posts/<%= post._id %>/delete" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="delete post"><i class="fas fa-trash-alt"></i></a>
+                            <% } %>
+                        
+                        </div>
+
+                    </div>
+                <% }) %>
+            <% } %>
+
+        </div>
+
+    </div>
+
     <!-- Show if user owns character -->
     <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
         <!-- New Post Button -->
