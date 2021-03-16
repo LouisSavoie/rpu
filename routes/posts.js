@@ -101,10 +101,14 @@ router.delete("/characters/:id/posts/:post_id", middleware.checkCharacterOwnersh
                     console.log(err)
                     res.redirect("back");
                 } else {
-                    res.redirect("/characters/" + req.params.id);
+                    // delevel skill progress by 1, if skill progress would be -1 then delevel skill and reset skill progress to 9
+                    leveling.delevelSkill(foundPost.skill);
                 }
             });
+            // delevel character progress by 1, if character progress would be -1 then delevel character and reset character progress to 9
+            leveling.delevelCharacter(req.params.id);
         }
+        res.redirect("/characters/" + req.params.id);
     });
 });
 
