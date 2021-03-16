@@ -6,15 +6,15 @@
     <!-- Character Info Section -->
     <div class="row info-panel p-4 mb-2">
 
-        <div class="col-12 col-sm-5 col-md-4 d-flex justify-content-center mb-4 mb-sm-0 p-0">
+        <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center mb-4 mb-md-0 p-0">
             <!-- Character Image -->
             <img class="border-circle" src="<%= character.image %>" style="width:200px;height:200px;" alt="Avatar">
         </div>
 
-        <div class="col-12 col-sm-7 col-md-8 d-flex flex-column justify-content-evenly align-items-center align-items-sm-start ps-sm-4 p-0">
+        <div class="col-12 col-md-7 col-lg-8 d-flex flex-column justify-content-evenly align-items-center align-items-md-start ps-md-4 p-0">
             <div class="row">
                 <!-- Character Name -->
-                <h2 class="textsize-2 mb-0 text-center text-sm-start"><%= character.name %></h2>
+                <h2 class="textsize-2 textcolor-green mb-0 text-center text-md-start"><%= character.name %></h2>
             </div>
             <div class="row">
                 <!-- Character Level -->
@@ -63,9 +63,13 @@
             <!-- Skills Subsection -->
             <div class="row d-flex justify-content-end pb-3">
 
+                <div class="col">
+                    <h3 class="textsize-1h textcolor-green">skills</h3>
+                </div>
+
                 <!-- Show if user owns character -->
                 <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
-                    <div class="col-auto">
+                    <div class="col-auto align-self-center">
                         <!-- New Skill Button -->
                         <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/skills/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new skill"><i class="fas fa-plus"></i></a>
                     </div>
@@ -79,7 +83,7 @@
 
                     <div class="col-auto order-1 order-sm-1 d-flex flex-column justify-content-center">
                         <!-- Skill Name and Level -->
-                        <span class="textsize-1"><%= skill.name %> <%= skill.level %></span>
+                        <span class="textsize-1"><%= skill.name %>, lvl <%= skill.level %></span>
                     </div>
 
                     <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
@@ -117,13 +121,17 @@
 
         <div class="col-12">
 
-            <div class="row d-flex justify-content-end pb-3">
+            <div class="row d-flex justify-content-between pb-4">
+
+                <div class="col">
+                    <h3 class="textsize-1h textcolor-green">posts</h3>
+                </div>
 
                 <!-- Show if user owns character -->
                 <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
-                    <div class="col-auto">
+                    <div class="col-auto align-self-center">
                         <!-- New Post Button -->
-                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/posts/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new post"><i class="fas fa-plus"></i></a>
+                        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/posts/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new post"><i class="fas fa-file-signature"></i></a>
                     </div>
                 <% } %>
 
@@ -132,40 +140,38 @@
             <!-- Display recent 3 Posts from Character's Posts Array -->
             <% if (character.posts.length > 0) {%>
                 <% posts.forEach((post) => { %>
-                    <div class="row pb-4">
+                    <div class="row info-panel p-4 mb-2">
 
-                        <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
+                        <div class="col-12 col-sm-auto d-flex flex-column p-0 pb-2 pb-sm-0">
 
                             <!-- Post Image -->
-                            <img src="<%= post.image %>" style="max-height: 100px; max-width: 100px;" alt="">
+                            <img class="rounded p-0 align-self-center" src="<%= post.image %>" style="height: 100px; max-width: 178px;" alt="">
 
                         </div>
 
-                        <div class="col-auto order-1 order-sm-1 d-flex flex-column justify-content-center">
+                        <div class="col d-flex flex-column justify-content-center p-0 ps-sm-4">
 
                             <!-- Post Skill -->
-                            <p><%= post.skill.name %></p>
-
-                        </div>
-
-                        <div class="col-12 col-sm order-3 order-sm-2 d-flex flex-column justify-content-center mt-2 mt-sm-0">
+                            <h4 class="textsize-1"><%= post.skill.name %></h4>
 
                             <!-- Post Text -->
-                            <p><%= post.text %></p>
+                            <p class="textcolor-darkgray"><%= post.text %></p>
+
+                            <div class="row-auto d-flex justify-content-end">
+                                <!-- Show if user owns character -->
+                                <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
+                                    <!-- Edit Post Button -->
+                                    <a class="btn button-green rounded-pill me-3" style="height: 45px;" href="/characters/<%= character._id %>/posts/<%= post._id %>/edit" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="edit post"><i class="fas fa-pencil-alt"></i></a>
+                                    
+                                    <!-- Delete Post Button -->
+                                    <a class="btn button-green rounded-pill" style="height: 45px;" href="/characters/<%= character._id %>/posts/<%= post._id %>/delete" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="delete post"><i class="fas fa-trash-alt"></i></a>
+                                <% } %>
+                            
+                            </div>
 
                         </div>
 
-                        <div class="col col-sm-auto order-2 order-sm-3 d-flex justify-content-end">
-                            <!-- Show if user owns character -->
-                            <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
-                                <!-- Edit Post Button -->
-                                <a class="btn button-green rounded-pill me-3" style="height: 45px;" href="/characters/<%= character._id %>/posts/<%= post._id %>/edit" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="edit post"><i class="fas fa-pencil-alt"></i></a>
-                                
-                                <!-- Delete Post Button -->
-                                <a class="btn button-green rounded-pill" style="height: 45px;" href="/characters/<%= character._id %>/posts/<%= post._id %>/delete" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="delete post"><i class="fas fa-trash-alt"></i></a>
-                            <% } %>
                         
-                        </div>
 
                     </div>
                 <% }) %>
@@ -175,11 +181,6 @@
 
     </div>
 
-    <!-- Show if user owns character -->
-    <% if(currentUser && character.user._id.equals(currentUser._id)){ %>
-        <!-- New Post Button -->
-        <a class="btn button-green rounded-pill" href="/characters/<%= character._id %>/posts/new" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="new post"><i class="fas fa-file-signature"></i></a>
-    <% } %>
 </div>
 
 <!-- temporary enable tooltips script -->

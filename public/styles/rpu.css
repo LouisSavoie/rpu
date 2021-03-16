@@ -22,6 +22,14 @@
   color: white;
 }
 
+.textcolor-mediumgray {
+  color: #969696;
+}
+
+.textcolor-darkgray {
+  color: #646464;
+}
+
 .textcolor-green {
   color: #32c832;
 }
@@ -34,6 +42,10 @@
 /* Text Size */
 .textsize-1 {
   font-size: calc(1rem + 1vw);
+}
+
+.textsize-1h {
+  font-size: calc(1.5rem + 1.5vw);
 }
 
 .textsize-2 {
