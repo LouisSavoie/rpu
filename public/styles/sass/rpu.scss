@@ -9,6 +9,7 @@
 // Colors
 $color-white: rgb(255, 255, 255);
 $color-mediumgray: rgb(150, 150, 150);
+$color-darkgray: rgb(100, 100, 100);
 $color-black: rgb(0, 0, 0);
 $color-green-primary: rgb(50, 200, 50);
 
@@ -55,6 +56,14 @@ $font-quicksand: 'Quicksand', sans-serif;
     color: $color-white;
 }
 
+.textcolor-mediumgray {
+    color: $color-mediumgray;
+}
+
+.textcolor-darkgray {
+    color: $color-darkgray;
+}
+
 .textcolor-green {
     color: $color-green-primary;
 }
@@ -67,6 +76,9 @@ $font-quicksand: 'Quicksand', sans-serif;
 /* Text Size */
 .textsize-1 {
     @include fontsize(1);
+}
+.textsize-1h {
+    @include fontsize(1.5);
 }
 
 .textsize-2 {

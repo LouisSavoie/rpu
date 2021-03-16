@@ -15,6 +15,12 @@ const characterSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Skill"
         }
+    ],
+    posts: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Post"
+        }
     ]
 });
 
