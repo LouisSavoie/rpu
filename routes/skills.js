@@ -3,6 +3,7 @@ const router = express.Router();
 const Skill = require("../models/skill");
 const Character = require("../models/character");
 const middleware = require("../middleware/middleware");
+const leveling = require("../lib/leveling");
 
 // ====================
 //     Skill Routes
@@ -95,6 +96,8 @@ router.delete("/characters/:id/skills/:skill_id", middleware.checkCharacterOwner
                     console.log(err)
                     res.redirect("back");
                 } else {
+                    // delevel character
+                    leveling.deletedSkill(req.params.id, foundSkill);
                     res.redirect("/characters/" + req.params.id);
                 }
             });
