@@ -62,6 +62,17 @@ router.get("/characters/:id", middleware.isLoggedIn, (req, res) => {
     });
 });
 
+// GET Character Redirect
+router.get("/characters/redirect/current", middleware.isLoggedIn, (req, res) => {
+    Character.findOne({user: req.user._id}, function(err, foundCharacter) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/characters/" + foundCharacter._id);
+        }
+    });
+});
+
 // GET Edit Character
 router.get("/characters/:id/edit", middleware.checkCharacterOwnership, (req, res) => {
     Character.findById(req.params.id, function(err, foundCharacter) {
