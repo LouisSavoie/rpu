@@ -87,7 +87,7 @@ router.get("/characters/:id/edit", middleware.checkCharacterOwnership, (req, res
 
 // PUT Edit Character
 router.put("/characters/:id", middleware.checkCharacterOwnership, (req, res) => {
-    Character.findOneAndUpdate(req.params.id, req.body.character, (err, updatedCharacter) => {
+    Character.findByIdAndUpdate(req.params.id, req.body.character, (err, updatedCharacter) => {
         if (err) {
             console.log(err);
             res.redirect("/characters/" + req.params.id)
